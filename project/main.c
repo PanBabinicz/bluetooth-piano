@@ -35,8 +35,7 @@ void SysTick_Handler(void) {
   if (!playlist_condition) {
     TPM0->MOD = mod_curr;
     ampl = (int)mod_curr / 50;
-    TPM0->CONTROLS[3].CnV =
-        ampl; // Nowa wartosc kreujaca wspólczynnik wypelnienia PWM
+    TPM0->CONTROLS[3].CnV = ampl; 
     TPM0->SC |= TPM_SC_CMOD(1);
     if (silence == 1) {
       TPM0->SC &= ~(TPM_SC_CMOD(3));
